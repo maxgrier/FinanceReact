@@ -1,0 +1,3 @@
+finnhub = cfnept1r01qokr93dsr0cfnept1r01qokr93dsrg
+    X-Finnhub-Token : apiKey
+SHA256:za3J3Wb4XI898GN9V5vrcwyxg5x2bEUtjMHOx4rqjBY max.grier1@gmail.com

@@ -1,0 +1,27 @@
+.headerOuter {
+    min-height: 15vh;
+    max-height: 100px;
+    box-shadow: 0px 0px 8px 2px #000000;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.link {
+    width: 20%;
+    margin: auto;
+}
+
+.bottomDiv {
+    width: 100%;
+    margin-top: 1%;
+    display: inline-flex;
+}
+
+.rightDiv {
+    width: 15%;
+    margin: 0 2%;
+    text-align: end;
+}
