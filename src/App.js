@@ -14,13 +14,13 @@ function App() {
   return (
     <div className="App">
 
-      {/* Section for header test  */}
+      {/* Section for header */}
       <div className='headerDiv'>
         <Header />
       </div>
 
       {/* Section for line graphs */}
-      {/* <div className='lineOuter'>
+      <div className='lineOuter'>
         <div className='lineDiv'>
           <Line2
             ticker='SPY'
@@ -31,7 +31,7 @@ function App() {
             ticker='QQQ'
           />
         </div>
-      </div> */}
+      </div>
 
       {/* Section for news */}
       <div>
