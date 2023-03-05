@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/FinanceReact/static/css/main.28d930c6.css",
-    "main.js": "/FinanceReact/static/js/main.830f222f.js",
+    "main.js": "/FinanceReact/static/js/main.e598cc5e.js",
     "static/js/787.f5e077aa.chunk.js": "/FinanceReact/static/js/787.f5e077aa.chunk.js",
     "static/media/logo.svg": "/FinanceReact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/FinanceReact/index.html",
     "main.28d930c6.css.map": "/FinanceReact/static/css/main.28d930c6.css.map",
-    "main.830f222f.js.map": "/FinanceReact/static/js/main.830f222f.js.map",
+    "main.e598cc5e.js.map": "/FinanceReact/static/js/main.e598cc5e.js.map",
     "787.f5e077aa.chunk.js.map": "/FinanceReact/static/js/787.f5e077aa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.28d930c6.css",
-    "static/js/main.830f222f.js"
+    "static/js/main.e598cc5e.js"
   ]
 }
