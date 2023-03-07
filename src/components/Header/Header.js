@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 
@@ -16,19 +17,25 @@ export default class Header extends Component {
 
                 <div className='bottomDiv'>
                     <div className='link'>
-                        Home
+                        <NavLink to={"/FinanceReact"}>
+                            Home
+                        </NavLink>
                     </div>
                     <div className='link'>
-                        Ticker Search
+                        <NavLink to={"/FinanceReact/ticker"}>
+                            Ticker Search
+                        </NavLink>
                     </div>
                     <div className='link'>
-                        News
+                        <NavLink to={"/FinanceReact/news"}>
+                            News
+                        </NavLink>
                     </div>
-                    <div className='rightDiv'>
+                    {/* <div className='rightDiv'>
                         Hello, {this.state.name}
-                    </div>
+                    </div> */}
                 </div>
-                
+
             </div>
         )
     }
