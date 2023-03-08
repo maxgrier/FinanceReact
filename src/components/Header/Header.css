@@ -6,7 +6,6 @@
     width: 100%;
     justify-content: center;
     flex-direction: column;
-
 }
 
 .link {
@@ -25,3 +24,5 @@
     margin: 0 2%;
     text-align: end;
 }
+
+/* Section to remove text decoration */

@@ -54,15 +54,21 @@ export default class NewsAV extends Component {
         // let index = this.getRandomInt(5)
         let article
         try{
-            article = this.state.data[0]
+            article = this.state.data["0"]
         } catch{
-            article = this.state.data[2]
+            article = this.state.data["2"]
         }
         
-        let title = article["title"]
-        let img = article["banner_image"]
-        let description = article["summary"]
-        let link = article["url"]
+        let title = article.title
+        if (title.length > 75){
+            title = title.substring(0,75) + "..."
+        }
+        let description = article.summary
+        if (description.length > 250){
+            description = description.substring(0,250) + "..."
+        }
+        let img = article.banner_image
+        let link = article.url
 
         this.setState({ title: title, image: img, description: description, link: link })
     }
