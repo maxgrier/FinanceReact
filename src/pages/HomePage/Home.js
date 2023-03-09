@@ -14,7 +14,7 @@ export default class Home extends Component {
             <div className="App">
 
                 {/* Section for line graphs */}
-                <div className='lineOuter'>
+                {/* <div className='lineOuter'>
                     <div className='lineDiv'>
                         <Line2
                             ticker='SPY'
@@ -25,7 +25,7 @@ export default class Home extends Component {
                             ticker='QQQ'
                         />
                     </div>
-                </div>
+                </div> */}
 
                 {/* Section for news */}
                 <div>
@@ -33,7 +33,7 @@ export default class Home extends Component {
                         Current News
                     </h1>
                 </div>
-                <div className='newsOuter'>
+                {/* <div className='newsOuter'>
                     <div className='newsItem'>
                         <NewsAV
                             company='TSLA'
@@ -49,7 +49,7 @@ export default class Home extends Component {
                             company='AAPL'
                         />
                     </div>
-                </div>
+                </div> */}
                 <div className='footer'>
 
                 </div>

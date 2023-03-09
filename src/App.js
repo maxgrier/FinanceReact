@@ -8,10 +8,11 @@ import Line2 from './components/Charts/Line2/Line2';
 import News from './components/News/News';
 import NewsAV from './components/NewsAV/NewsAV';
 
-import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, BrowserRouter, HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
 import { createBrowserHistory } from "history";
 import Home from './pages/HomePage/Home';
+import StockTicker from './components/StockTicker/StockTicker';
 
 const history = createBrowserHistory()
 
@@ -20,12 +21,16 @@ function App() {
   // GetAPI()
   return (
     <BrowserRouter history={history}>
+    {/* <HashRouter> */}
       <>
           <div className="App">
 
             {/* Section for header */}
             <div className='headerDiv'>
               <Header />
+            </div>
+            <div className='tickerDiv'>
+                <StockTicker/>
             </div>
 
             <Routes>
@@ -76,6 +81,7 @@ function App() {
             </Routes>
           </div>
       </>
+      {/* </HashRouter> */}
     </BrowserRouter>
   );
 }

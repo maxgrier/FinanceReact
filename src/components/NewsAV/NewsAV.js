@@ -37,9 +37,9 @@ export default class NewsAV extends Component {
             let data2 = await data.json()
             console.log('news av data, ', this.props.company)
             console.log(data2)
-            this.setState({ data: data2["feed"] })
+            this.setState({ data: data2["feed"] }, ()=>{this.setNewsItems()})
 
-            this.setNewsItems()
+            // this.setNewsItems()
             return data2
         } catch (error) {
             console.log(error)
@@ -51,12 +51,17 @@ export default class NewsAV extends Component {
     }
 
     setNewsItems = () => {
+        console.log('--------------- set items -----------------')
+        console.log('state data: ')
+        console.log(this.state.data)
+        console.log('First article')
+        console.log(this.state.data)
         // let index = this.getRandomInt(5)
         let article
         try{
-            article = this.state.data["0"]
+            article = this.state.data[0]
         } catch{
-            article = this.state.data["2"]
+            article = this.state.data[2]
         }
         
         let title = article.title
@@ -108,6 +113,7 @@ export default class NewsAV extends Component {
                         <Button size="small" onClick={() => { this.NewTab(this.state.link) }}>Read Article</Button>
                     </CardActions>
                 </Card>
+                <>.</>
             </div>
         )
     }
