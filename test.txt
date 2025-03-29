@@ -1,0 +1,11 @@
+https://stackoverflow.com/questions/70283510/how-to-update-a-github-access-token-via-command-line
+
+Open a command line and set the current directory to your project root
+
+Run this command to set remote access via a token:
+
+git remote set-url origin https://username:token@github.com/username/repository.git
+
+For example:
+
+git remote set-url origin https://exampleuser:b8c281*****u52d@github.com/exampleuser/exampleproject.git

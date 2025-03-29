@@ -1,0 +1,1 @@
+if you get the querystring-es3 error, replace the react-scripts/webpack.config with the webpack.config.js in the client folder

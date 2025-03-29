@@ -1,0 +1,9 @@
+.plotOuter {
+    width: 100%;
+    display: flex;
+}
+
+.plotOuter>div {
+    width: 100%;
+    display: flex;
+}

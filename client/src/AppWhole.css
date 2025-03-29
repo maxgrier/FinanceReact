@@ -1,0 +1,16 @@
+.modebar-container {
+    top: 100px !important;
+    border: 10px solid red !important;
+    width: fit-content;
+    height: 200px;
+}
+
+.modebar-group {
+    border: 10px solid red !important;
+}
+
+
+/* 
+div {
+    border: 1px solid red;
+} */

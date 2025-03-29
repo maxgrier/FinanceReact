@@ -1,0 +1,30 @@
+/* Search Button */
+
+.searchouter {
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+}
+
+.searchouter,
+input {
+    border-radius: 5px;
+    border: 1px slid grey;
+}
+
+
+/* Company Name Section */
+
+.companyNameOuter {
+    width: 100%;
+    display: inline-flex;
+}
+
+
+/* Prices */
+
+.prices {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
