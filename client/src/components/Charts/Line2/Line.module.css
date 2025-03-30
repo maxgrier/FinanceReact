@@ -1,9 +1,74 @@
 .plotOuter {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
-.plotOuter>div {
-    width: 100%;
-    display: flex;
+.plotOuter > div {
+  width: 100%;
+  display: flex;
 }
+
+.chartContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two charts side by side */
+  gap: 20px; /* Space between charts */
+  padding: 20px;
+}
+
+/* Chart styling */
+.chart {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive: Stack charts on smaller screens */
+@media (max-width: 768px) {
+  .chartContainer {
+    grid-template-columns: 1fr; /* Stack on small screens */
+  }
+}
+
+.chart {
+  flex: 1; /* Allow flexible resizing */
+  min-width: 300px; /* Prevent charts from becoming too small */
+  max-width: 48%; /* Ensure they fit side by side */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Stack charts on smaller screens */
+@media (max-width: 768px) {
+  .chart {
+    max-width: 100%; /* Full width when stacked */
+  }
+}
+
+.chart {
+    flex: 1;
+    min-width: 300px; /* Prevent charts from shrinking too much */
+    max-width: 48%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* Ensure Plotly respects container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Set a defined height to contain the chart */
+  }
+/* 
+  .lightMode {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  .darkMode {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+  } */

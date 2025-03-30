@@ -1,7 +1,10 @@
 # fly.toml app configuration file generated for financereact on 2024-10-03T19:10:12-07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# https://financereact.fly.dev/
+# npm run build
+# flyctl launch
+
 
 app = 'financereact'
 primary_region = 'sea'

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 // import logo from './logo.svg';
 import Header from "./components/Header/Header";
 import NewHeader from "./components/NewHeader/NewHeader";
-
+import NewDarkHeader from "./components/NewHeader/NewDarkHeader";
+import FinanceApp from "./FinanceApp"
 // import GetAPI from './functions/Functions';
 // import Line from './components/Charts/Line/Line';
 // import Line2 from './components/Charts/Line2/Line2';
@@ -100,6 +101,7 @@ function App() {
           {/* <div className='headerDiv'> */}
           {/* <Header /> */}
           <NewHeader/>
+          {/* <NewDarkHeader/> */}
           {/* </div> */}
           <div className={classes.tickerDiv}>
             <StockTicker />
@@ -107,7 +109,14 @@ function App() {
 
           <Routes>
             {/* <Route exact path="/FinanceReact" element={<Line />} /> */}
-            <Route exact path="/" element={<Home />} />
+            {/* <Route exact path="/" element={<Home />} /> */}
+            <Route exact path="/" element={
+            <>
+            <Home/>
+            {/* <FinanceApp/> */}
+            </>
+            } />
+
             <Route
               path="/FinanceReact/news"
               element={<NewsAV company="TSLA" />}

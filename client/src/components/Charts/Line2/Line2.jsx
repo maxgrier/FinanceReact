@@ -121,30 +121,31 @@ export default class Line2 extends Component {
       autosize: true,
       // width: 550,
       // height: 400,
-    //   width: 1,
+      //   width: 1,
       // height: 1,
       margin: {
-          l: 50,
-          r: 50,
-          b: 100,
-          t: 100,
-          pad: 4
+        l: 50,
+        r: 50,
+        b: 100,
+        t: 100,
+        pad: 4,
       },
-    //   margin: {
-    //     l: 0,
-    //     r: 0,
-    //     b: 0,
-    //     t: 0,
-    //     pad: 0,
-    //   },
+      //   margin: {
+      //     l: 0,
+      //     r: 0,
+      //     b: 0,
+      //     t: 0,
+      //     pad: 0,
+      //   },
       // paper_bgcolor: '#7f7f7f',
       // plot_bgcolor: '#c7c7c7',
       paper_bgcolor: "whitesmoke",
       plot_bgcolor: "lightgrey",
       modebar: {
-          width: 50
-      }
+        width: 50,
+      },
     },
+    themeClass: "darkMode",
   };
 
   setUrl(ticker) {
@@ -376,8 +377,32 @@ export default class Line2 extends Component {
 
   render() {
     return (
-      <div className={classes.plotOuter}>
-        <Plot data={[this.state.trace]} layout={this.state.layout} />
+      // <div className={classes.plotOuter}>
+      //   <Plot data={[this.state.trace]} layout={this.state.layout} className={classes['testing']} />
+      // </div>
+      <div className={`${classes.chart} ${classes[this.state.themeClass]}`}>
+        <Plot
+          data={[this.state.trace]}
+          // layout={this.state.layout}
+          layout={{
+            title: this.props.ticker.toUpperCase() + " Monthly",
+            autosize: true,
+            padding: 0,
+            margin: {
+              l: 50,
+              r: 50,
+              b: 50,
+              t: 50,
+              pad: 4,
+            },
+            paper_bgcolor: "var(--bg-color)", // Background color
+            plot_bgcolor: "var(--bg-color)", // Plot area color
+            font: { color: "var(--text-color)" }, // Text color
+          }}
+          // className={classes["testing"]}
+          useResizeHandler={true} // Ensures responsiveness
+          style={{ width: "100%", height: "100%" }} // Forces it to stay within .chart
+        />
       </div>
     );
   }

@@ -46,20 +46,20 @@ export default class Home extends Component {
     return (
       <div className={classes.homeOuter}>
         {/* Section for line graphs */}
-        <div className={classes.lineOuter}>
+        <div className={classes.chartContainer}>
+          <Line2 ticker="SPY" />
+          <Line2 ticker="QQQ" />
+        </div>
+        {/* <div className={classes.lineOuter}>
           <div className={classes.lineDiv}>
             <Line2 ticker="SPY" />
-            {/* <Line
-                            ticker='SPY'
-                        /> */}
+            //<Line ticker="SPY" />
           </div>
           <div className={classes.lineDiv}>
-            {/* <Line
-                            ticker='QQQ'
-                        /> */}
             <Line2 ticker="QQQ" />
+            //<Line ticker="QQQ" />
           </div>
-        </div>
+        </div> */}
 
         {/* Section for news */}
         <div>

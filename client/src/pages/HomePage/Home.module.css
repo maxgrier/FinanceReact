@@ -1,32 +1,50 @@
 .homeOuter {
-    text-align: center;
-    /* display: inline-flex; */
+  text-align: center;
+  /* display: inline-flex; */
 }
 
 .lineOuter {
-    width: 100%;
-    display: inline-flex;
+  width: 100%;
+  display: inline-flex;
 }
 
 .lineDiv {
-    width: 48%;
-    margin: auto;
-    border: black solid 1px;
+  width: 48%;
+  margin: auto;
+  border: black solid 1px;
 }
 
 .newsOuter {
-    display: inline-flex;
-    width: 98%;
-    margin: auto;
+  display: inline-flex;
+  width: 98%;
+  margin: auto;
 }
 
 .newsItem {
-    width: 30%;
-    margin: auto;
-    justify-content: center;
-    display: flex;
+  width: 30%;
+  margin: auto;
+  justify-content: center;
+  display: flex;
 }
 
 .footer {
-    height: 10vh;
+  height: 10vh;
+}
+
+.chartContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two charts side by side */
+  gap: 20px; /* Space between charts */
+  padding: 20px;
+}
+
+.chartContainer {
+  display: flex;
+  justify-content: center; /* Center charts */
+  align-items: center;
+  gap: 20px; /* Space between charts */
+  width: 100%;
+  max-width: 100vw; /* Prevent overflow */
+  padding: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
