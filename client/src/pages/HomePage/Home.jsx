@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import NewsAV from '../../components/NewsAV/NewsAV';
 import Line2 from "../../components/Charts/Line2/Line2";
+import LineFunc from "../../components/Charts/Line2/LineFunc";
 // import Line from '../../components/Charts/Line/Line';
 // import classes from "../../App.module.css";
 import classes from "./Home.module.css";
@@ -12,43 +13,24 @@ export default class Home extends Component {
     name: "Max Grier",
   };
 
-  getYahoo = async () => {
-    try {
-      const data = await fetch("./yahoo");
-      const dataJson = await data.json();
-      console.log("yahoo data: ", dataJson);
-    } catch (e) {
-      console.log(e);
-    }
+  renderMarketNews = () => {
+    let companies = ["AMZN","TSLA", "AAPL","NVDA","GOOGL","MSFT"]; // List of companies
+    return companies.map((company) => (
+      <div key={company} className={classes.newsItem}>
+        <MarketNews type="company" company={company} index={3} />
+      </div>
+    ));
   };
-
-  setMarketNews = (count) => {
-    let h;
-    for (let i = 0; i < count; i++) {
-      console.log("i ", i);
-      h += <h1>{i}</h1>;
-      // return (
-
-      //     <div className='newsItem'>
-      //         {h}
-      //         <MarketNews index={i} />
-      //     </div>
-      // )
-    }
-    return <div>{h}</div>;
-  };
-
-  componentDidMount() {
-    // this.getYahoo();
-  }
 
   render() {
     return (
       <div className={classes.homeOuter}>
         {/* Section for line graphs */}
         <div className={classes.chartContainer}>
-          <Line2 ticker="SPY" />
-          <Line2 ticker="QQQ" />
+          {/* <Line2 ticker="SPY" /> */}
+          {/* <Line2 ticker="QQQ" /> */}
+          <LineFunc ticker="SPY" />
+          <LineFunc ticker="QQQ" />
         </div>
         {/* <div className={classes.lineOuter}>
           <div className={classes.lineDiv}>
@@ -80,8 +62,8 @@ export default class Home extends Component {
         <div>
           <h1>Company News</h1>
         </div>
-        <div className={classes.newsOuter}>
-          {/* {this.setMarketNews(3)} */}
+        <div className={classes.newsOuter}>{this.renderMarketNews()}</div>
+        {/* <div className={classes.newsOuter}>
           <div className={classes.newsItem}>
             <MarketNews type="company" company="MSFT" index={3} />
           </div>
@@ -91,7 +73,7 @@ export default class Home extends Component {
           <div className={classes.newsItem}>
             <MarketNews type="company" company="AAPL" index={3} />
           </div>
-        </div>
+        </div> */}
         {/* <div className='newsOuter'>
                     <div className='newsItem'>
                         <NewsAV

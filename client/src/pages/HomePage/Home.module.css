@@ -14,7 +14,7 @@
   border: black solid 1px;
 }
 
-.newsOuter {
+/* .newsOuter {
   display: inline-flex;
   width: 98%;
   margin: auto;
@@ -25,6 +25,21 @@
   margin: auto;
   justify-content: center;
   display: flex;
+} */
+
+.newsOuter {
+  display: flex; /* Change from inline-flex to flex */
+  flex-wrap: wrap; /* Allows items to wrap to a new row */
+  justify-content: center; /* Centers items */
+  gap: 10px; /* Adds spacing between items */
+  width: 98%;
+  margin: auto;
+}
+
+.newsItem {
+  width: 30%; /* Ensures 3 items fit in a row */
+  display: flex;
+  justify-content: center;
 }
 
 .footer {

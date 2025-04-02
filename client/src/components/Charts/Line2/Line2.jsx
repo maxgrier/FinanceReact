@@ -146,6 +146,11 @@ export default class Line2 extends Component {
       },
     },
     themeClass: "darkMode",
+    darkMode: false,
+      colors: {
+        bgColor: "#ffffff",
+        textColor: "#000000",
+      },
   };
 
   setUrl(ticker) {
@@ -345,6 +350,33 @@ export default class Line2 extends Component {
   //     },
   // };
 
+
+   // Method to update colors based on the theme
+   updateColors = () => {
+    const root = document.documentElement;
+    
+    const darkColors = {'text':'#ffffff','background':'#1e1e1e'}
+    const lightColors = {'text':'#000000','background':'#ffffff'}
+    const bgColor = this.state.darkMode ? darkColors.background : lightColors.background
+    const textColor = this.state.darkMode ? darkColors.text : lightColors.text
+    // const bgColor = getComputedStyle(root)
+    //   .getPropertyValue(this.state.darkMode ? "--bg-color" : "--bg-color")
+    //   .trim();
+    // const textColor = getComputedStyle(root)
+    //   .getPropertyValue(this.state.darkMode ? "--text-color" : "--text-color")
+    //   .trim();
+
+    this.setState({
+      colors: { bgColor, textColor },
+    });
+  };
+
+  // componentDidUpdate(prevProps){
+  //   if(prevProps !== this.props){
+  //     this.checkDarkMode(); // Load initial theme settings
+  //   }
+  // }
+
   // url = ''
   componentDidMount() {
     // getYahoo()
@@ -352,6 +384,24 @@ export default class Line2 extends Component {
     // this.getData()
     // this.getDataNew('VOO')
     this.getDataNew(this.props.ticker);
+    this.checkDarkMode(); // Load initial theme settings
+    
+    window.dispatchEvent(new Event('storage'))
+
+    // Listen for localStorage changes from other components
+    window.addEventListener('storage', () => {
+      console.log("Change to local storage!");
+      // ...
+  })
+    window.addEventListener("storage", ()=>this.handleStorageChange());
+    this.interval = setInterval(() => {
+      // this.handleStorageChange()
+      const storedDarkMode = localStorage.getItem("darkMode") === "true";
+      if (storedDarkMode !== this.state.darkMode) {
+        this.setState({ darkMode: storedDarkMode }, this.updateColors);
+      }
+    }, 500); // ✅ Check every 500ms (low performance impact)
+
     // setTimeout(() => {
     //     this.splitData()
     // }, 1000);
@@ -375,30 +425,75 @@ export default class Line2 extends Component {
     // }, 500);
   }
 
+
+   // Function to check localStorage or data-theme on mount & updates
+   checkDarkMode = () => {
+    const storedDarkMode = localStorage.getItem("darkMode") === "true";
+    const documentThemeDark = document.documentElement.dataset.theme === "dark";
+
+    // const isDarkMode = storedDarkMode || documentThemeDark;
+    const isDarkMode = storedDarkMode || documentThemeDark;
+
+    this.setState({ darkMode: isDarkMode }, this.updateColors);
+  };
+
+  // componentDidMount() {
+  //   this.checkDarkMode(); // Load initial theme settings
+
+  //   // Listen for localStorage changes from other components
+  //   window.addEventListener("storage", this.handleStorageChange);
+  // }
+
+  // componentWillUnmount() {
+  //   window.removeEventListener("storage", this.handleStorageChange);
+  // }
+
+  handleStorageChange = (event) => {
+    console.log('event ', event)
+    if(event){
+
+      if (event.key === "darkMode") {
+        this.checkDarkMode(); // Re-check and apply dark mode
+      }
+    }
+  };
+
   render() {
+    const { darkMode, colors } = this.state;
+
+    const layout = {
+      title: this.props.ticker.toUpperCase() + " Monthly",
+      autosize: true,
+      paper_bgcolor: colors.bgColor, // Dynamic background color
+      plot_bgcolor: colors.bgColor, // Dynamic plot area color
+      font: { color: colors.textColor }, // Dynamic text color
+    };
+
     return (
       // <div className={classes.plotOuter}>
       //   <Plot data={[this.state.trace]} layout={this.state.layout} className={classes['testing']} />
       // </div>
-      <div className={`${classes.chart} ${classes[this.state.themeClass]}`}>
+      <div className={`${classes.chart} ${darkMode ? classes.darkMode : classes.lightMode}`}>
+      {/* <div className={`${classes.chart} ${classes[this.state.themeClass]}`}> */}
         <Plot
           data={[this.state.trace]}
           // layout={this.state.layout}
-          layout={{
-            title: this.props.ticker.toUpperCase() + " Monthly",
-            autosize: true,
-            padding: 0,
-            margin: {
-              l: 50,
-              r: 50,
-              b: 50,
-              t: 50,
-              pad: 4,
-            },
-            paper_bgcolor: "var(--bg-color)", // Background color
-            plot_bgcolor: "var(--bg-color)", // Plot area color
-            font: { color: "var(--text-color)" }, // Text color
-          }}
+          layout={layout}
+          // layout={{
+          //   title: this.props.ticker.toUpperCase() + " Monthly",
+          //   autosize: true,
+          //   padding: 0,
+          //   margin: {
+          //     l: 50,
+          //     r: 50,
+          //     b: 50,
+          //     t: 50,
+          //     pad: 4,
+          //   },
+          //   paper_bgcolor: "var(--bg-color)", // Background color
+          //   plot_bgcolor: "var(--bg-color)", // Plot area color
+          //   font: { color: "var(--text-color)" }, // Text color
+          // }}
           // className={classes["testing"]}
           useResizeHandler={true} // Ensures responsiveness
           style={{ width: "100%", height: "100%" }} // Forces it to stay within .chart
